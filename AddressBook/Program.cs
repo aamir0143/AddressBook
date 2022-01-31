@@ -1,48 +1,18 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
-namespace AddressBook
+﻿using AddressBook;
+Console.WriteLine("==========Welcome To Address Book Program==========");
+Console.Write("Select Number:\n1)AddContacts\n2)EditContact\n");
+int option = Convert.ToInt32(Console.ReadLine());
+switch (option)
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("==========Welcome To Addess Book Programs==========");
-            //Creating object of AddressbookEntry
-            AddressBookEntry addressBook = new AddressBookEntry(1);
-            Contact newContact = addressBook.CreateContact();
-            Console.WriteLine("*****-> Details Of Person  <-*****");
-            Console.WriteLine($"First Name: {newContact.FirstName}");
-            Console.WriteLine($"Last Name: {newContact.LastName}");
-            Console.WriteLine($"City Name: {newContact.City}");
-            Console.WriteLine($"State Name: {newContact.State}");
-            Console.WriteLine($"Zipcode: {newContact.ZipCode}");
-            Console.WriteLine($"PhoneNumber: {newContact.PhoneNumber}");
-            Console.WriteLine($"Email: {newContact.Email}");
-            Console.WriteLine("==========================================================================");
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Address book options:\n1:To Add New Entry.\n2:TO Leave.\n");
-            Console.Write("Option: ");
-            Console.ResetColor();
-            string Instruction = Console.ReadLine();
-            while (true)
-            {
-                if (Instruction.ToLower() == "2")//Checking For Option
-                {
-                    Console.WriteLine("GoodBye!");
-                    break;
-                }
-                else if (Instruction.ToLower() == "1")//Checking For Option
-                {
-                    addressBook.AddNewContact();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Input!");
-                }
-            }
-            Console.WriteLine("=========================================================================");
-            Console.ReadLine();
-        }
-    }
+    case 1:
+        new Contact();
+        break;
+    case 2:
+        EditEntry.NewContact();
+        EditEntry.ListAllContacts();
+        EditEntry.Update();
+        break;
+    default:
+        Console.Write("Please Select Correct Number");
+        break;
 }
