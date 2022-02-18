@@ -7,7 +7,7 @@ namespace AddressBook
 {
     class Program
     {
-        //Main  Method / program Entry Point
+        //Main  Method for program Entry Point
         static void Main(string[] args)
         {
             //Showing Welcome Message On console.
