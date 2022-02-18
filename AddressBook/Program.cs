@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using AddressBook;
 Console.Write("Select Number:\n1)AddContacts\n2)EditContact\n3)DeleteContact\n");
 int option = Convert.ToInt32(Console.ReadLine());
@@ -81,4 +82,25 @@ namespace AddressBook
         }
     }
 >>>>>>> UC4_DeletePerson
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace AddressBook
+{
+    class Program
+    {
+        //Main  Method for program Entry Point
+        static void Main(string[] args)
+        {
+            //Showing Welcome Message On console.
+            Console.WriteLine("==========Welcome To Address Book Programs==========");
+            AddressBook createAddressBook = new AddressBook();
+            createAddressBook.ReadInput();
+            Console.ReadLine();
+        }
+    }
+>>>>>>> UC3_EditContacts
 }

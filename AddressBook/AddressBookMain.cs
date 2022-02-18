@@ -26,7 +26,11 @@ namespace AddressBook
                 }
             }
             else
+<<<<<<< HEAD
                 Console.WriteLine("No Contacts in AddressBook");
+=======
+                Console.WriteLine("No Contacts is AddressBook");
+>>>>>>> UC3_EditContacts
         }
         //Method to Edit Contact 
         public void EditContact(string name)
@@ -45,6 +49,10 @@ namespace AddressBook
                     Console.WriteLine("6. Phone Number");
                     Console.WriteLine("7. Email");
                     int choice = Convert.ToInt32(Console.ReadLine());
+<<<<<<< HEAD
+=======
+
+>>>>>>> UC3_EditContacts
                     switch (choice)
                     {
                         case 1:
@@ -84,6 +92,7 @@ namespace AddressBook
                     Console.WriteLine("No Contact With this Name!");
             }
         }
+<<<<<<< HEAD
         //Method to Delete a Person
         public void DeleteContact(string dName)
         {
@@ -97,5 +106,7 @@ namespace AddressBook
                 }
             }
         }
+=======
+>>>>>>> UC3_EditContacts
     }
 }

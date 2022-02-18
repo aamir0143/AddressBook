@@ -20,9 +20,15 @@ namespace AddressBook
                 Console.WriteLine("1.Add contacts");
                 Console.WriteLine("2.Display");
                 Console.WriteLine("3.Edit Details");
+<<<<<<< HEAD
                 Console.WriteLine("4.Delete Person");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
+=======
+                Console.WriteLine("0.Exit");
+                int choice = Convert.ToInt32(Console.ReadLine());
+
+>>>>>>> UC3_EditContacts
                 switch (choice)
                 {
                     case 1:
@@ -36,11 +42,14 @@ namespace AddressBook
                         string name = Console.ReadLine();
                         addressMain.EditContact(name);
                         break;
+<<<<<<< HEAD
                     case 4:
                         Console.WriteLine("Enter the first name of person");
                         string dName = Console.ReadLine();
                         addressMain.DeleteContact(dName);
                         break;
+=======
+>>>>>>> UC3_EditContacts
                     case 0:
                         CONTINUE = false;
                         break;
