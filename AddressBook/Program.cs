@@ -1,18 +1,20 @@
-﻿using AddressBook;
-Console.WriteLine("==========Welcome To Address Book Program==========");
-Console.Write("Select Number:\n1)AddContacts\n2)EditContact\n");
-int option = Convert.ToInt32(Console.ReadLine());
-switch (option)
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace AddressBook
 {
-    case 1:
-        new Contact();
-        break;
-    case 2:
-        EditEntry.NewContact();
-        EditEntry.ListAllContacts();
-        EditEntry.Update();
-        break;
-    default:
-        Console.Write("Please Select Correct Number");
-        break;
+    class Program
+    {
+        //Main  Method / program Entry Point
+        static void Main(string[] args)
+        {
+            //Showing Welcome Message On console.
+            Console.WriteLine("==========Welcome to Address Book Programs==========");
+            AddressBook createAddressBook = new AddressBook();
+            createAddressBook.ReadInput();
+            Console.ReadLine();
+        }
+    }
 }
