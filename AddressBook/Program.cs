@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using AddressBook;
 Console.Write("Select Number:\n1)AddContacts\n2)EditContact\n3)DeleteContact\n");
 int option = Convert.ToInt32(Console.ReadLine());
@@ -21,6 +22,8 @@ switch (option)
         Console.Write("Please Select Correct Number");
         break;
 =======
+=======
+>>>>>>> UC2_AddNewContact
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +50,12 @@ namespace AddressBook
                 PhoneNumber = Convert.ToDouble(Console.ReadLine()),
                 Email = Console.ReadLine(),
             };
+<<<<<<< HEAD
             addressBook.displayContact();
+=======
+            addressBook.DisplayContact();
+            addressBook.AddContact();
+>>>>>>> UC2_AddNewContact
             Console.ReadLine();
         }
     }
