@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ﻿using AddressBook;
 Console.Write("Select Number:\n1)AddContacts\n2)EditContact\n3)DeleteContact\n");
 int option = Convert.ToInt32(Console.ReadLine());
@@ -32,11 +33,22 @@ using System.Threading.Tasks;
 namespace AddressBook
 {
     public class Program
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace AddressBook
+{
+    class Program
+>>>>>>> UC4_DeletePerson
     {
         //Main  Method / program Entry Point
         static void Main(string[] args)
         {
             //Showing Welcome Message On console.
+<<<<<<< HEAD
             Console.WriteLine("==========Welcome To Addess Book Programs==========");
             Console.Write("Enter First Name, Last Name, Address, City, State, Zip, Phone Number, Email \n");
             AddressBookEntry addressBook = new AddressBookEntry()  //Initializing elements using collection-initializer syntax
@@ -60,4 +72,13 @@ namespace AddressBook
         }
     }
 >>>>>>> UC1_CreateContact
+=======
+            Console.WriteLine("==========Welcome to Address Book Programs==========");
+            AddressBook createAddressBook = new AddressBook();
+            createAddressBook.ReadInput();
+            Console.ReadLine();
+
+        }
+    }
+>>>>>>> UC4_DeletePerson
 }
