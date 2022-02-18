@@ -1,47 +1,31 @@
-﻿// See https://aka.ms/new-console-template for more information
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 namespace AddressBook
 {
-    class Program
+    public class Program
     {
+        //Main  Method / program Entry Point
         static void Main(string[] args)
         {
+            //Showing Welcome Message On console.
             Console.WriteLine("==========Welcome To Addess Book Programs==========");
-            //Creating object of AddressbookEntry
-            AddressBookEntry addressBook = new AddressBookEntry(1);
-            Contact newContact = addressBook.CreateContact();
-            Console.WriteLine("*****-> Details Of Person  <-*****");
-            Console.WriteLine($"First Name: {newContact.FirstName}");
-            Console.WriteLine($"Last Name: {newContact.LastName}");
-            Console.WriteLine($"City Name: {newContact.City}");
-            Console.WriteLine($"State Name: {newContact.State}");
-            Console.WriteLine($"Zipcode: {newContact.ZipCode}");
-            Console.WriteLine($"PhoneNumber: {newContact.PhoneNumber}");
-            Console.WriteLine($"Email: {newContact.Email}");
-            Console.WriteLine("==========================================================================");
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Address book options:\n1:To Add New Entry.\n2:TO Leave.\n");
-            Console.Write("Option: ");
-            Console.ResetColor();
-            string Instruction = Console.ReadLine();
-            while (true)
+            Console.Write("Enter First Name, Last Name, Address, City, State, Zip, Phone Number, Email \n");
+            AddressBookEntry addressBook = new AddressBookEntry()  //Initializing elements using collection-initializer syntax
             {
-                if (Instruction.ToLower() == "2")//Checking For Option
-                {
-                    Console.WriteLine("GoodBye!");
-                    break;
-                }
-                else if (Instruction.ToLower() == "1")//Checking For Option
-                {
-                    addressBook.AddNewContact();
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Input!");
-                }
-            }
-            Console.WriteLine("=========================================================================");
+                FirstName = Console.ReadLine(),
+                LastName = Console.ReadLine(),
+                Address = Console.ReadLine(),
+                City = Console.ReadLine(),
+                State = Console.ReadLine(),
+                Zip = Convert.ToDouble(Console.ReadLine()),
+                PhoneNumber = Convert.ToDouble(Console.ReadLine()),
+                Email = Console.ReadLine(),
+            };
+            addressBook.DisplayContact();
+            addressBook.AddContact();
             Console.ReadLine();
         }
     }

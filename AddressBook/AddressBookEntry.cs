@@ -1,71 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AddressBook
 {
-    public class AddressBookEntry
+    public class AddressBookEntry 
     {
-
-        private Contact[] entries;//Class With Array of object
-        private int totalEntries = 0;
-        public int Size { get; private set; }
-
-        public AddressBookEntry(int size)//Parameterized Constructor 
+        //properties
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public double Zip { get; set; }
+        public double PhoneNumber { get; set; }
+        public string Email { get; set; }
+        //Method to display Contact.
+        public void DisplayContact()
         {
-            entries = new Contact[size];//It will Create an Array
-            Size = size;
+            Console.WriteLine("FirstName: " + this.FirstName + " LastName: " + this.LastName
+                            + " Address: " + this.Address + " City: " + this.City + " State: "
+                            + this.State + " Zip: " + this.Zip + " PhoneNumber: "
+                            + this.PhoneNumber + " Email: " + this.Email);
         }
-        List<Contact> addressBook = new List<Contact>();
-        public Contact CreateContact()
+        //Method to Add Contact in a List.
+        public void AddContact() 
         {
-            Contact addNew = new Contact();
-            Console.Write("Enter Your First Name:");
-            addNew.FirstName = Console.ReadLine();
-            Console.Write("Enter Your Last Name:");
-            addNew.LastName = Console.ReadLine();
-            Console.Write("Enter Your City Name:");
-            addNew.City = Console.ReadLine();
-            Console.Write("Enter Your State Name:");
-            addNew.State = Console.ReadLine();
-            Console.Write("Enter Your Zipcode:");
-            addNew.ZipCode = Convert.ToInt32(Console.ReadLine());
-            Console.Write("Enter Your Phone Number:");
-            addNew.PhoneNumber = Convert.ToInt64(Console.ReadLine());
-            Console.Write("Enter Your Email:");
-            addNew.Email = Console.ReadLine();
-            Console.WriteLine("===========================================================================");
-            return addNew;
-        }
-        public void AddNewContact()
-        {
-            Contact newContact = CreateContact();
-            addressBook.Add(newContact);
-            if (totalEntries < entries.Length)
+            Console.Write("Enter First Name, Last Name, Address, City, State, Zip, Phone Number, Email \n");
+            AddressBookEntry addressBook = new AddressBookEntry()  //Initializing elements using collection-initializer syntax
             {
-                entries[totalEntries++] = newContact;
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Added successfuly!");
-                Console.ResetColor();
-
-                Console.WriteLine("*****-> Details Of Person  <-*****");
-                Console.WriteLine($"First Name: {newContact.FirstName}");
-                Console.WriteLine($"Last Name: {newContact.LastName}");
-                Console.WriteLine($"City Name: {newContact.City}");
-                Console.WriteLine($"State Name: {newContact.State}");
-                Console.WriteLine($"Zipcode: {newContact.ZipCode}");
-                Console.WriteLine($"Phone Number: {newContact.PhoneNumber}");
-                Console.WriteLine($"Email: {newContact.Email}");
-                Console.WriteLine("==============================================================================");
-            }
-            else
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Address Book is already full.");
-                Console.ResetColor();
-            }
+                FirstName = Console.ReadLine(),
+                LastName = Console.ReadLine(),
+                Address = Console.ReadLine(),
+                City = Console.ReadLine(),
+                State = Console.ReadLine(),
+                Zip = Convert.ToDouble(Console.ReadLine()),
+                PhoneNumber = Convert.ToDouble(Console.ReadLine()),
+                Email = Console.ReadLine(),
+            };
+            //creating a List to store contacts in List.
+            IList<AddressBookEntry> AddreddBookList = new List<AddressBookEntry>();  //created List of class Type.
+            AddreddBookList.Add(addressBook);
+            addressBook.DisplayContact();
         }
     }
 }
