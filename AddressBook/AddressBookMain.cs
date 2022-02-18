@@ -45,6 +45,7 @@ namespace AddressBook
                     Console.WriteLine("6. Phone Number");
                     Console.WriteLine("7. Email");
                     int choice = Convert.ToInt32(Console.ReadLine());
+
                     switch (choice)
                     {
                         case 1:

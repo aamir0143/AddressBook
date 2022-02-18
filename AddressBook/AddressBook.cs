@@ -22,6 +22,7 @@ namespace AddressBook
                 Console.WriteLine("3.Edit Details");
                 Console.WriteLine("0.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
+
                 switch (choice)
                 {
                     case 1:
