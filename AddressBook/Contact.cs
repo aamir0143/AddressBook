@@ -3,54 +3,44 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace AddressBook
 {
-    public class CreateNewContact
+    public class Contact
     {
-        public string Firstname;
-        public string Lastname;
-        public string City;
-        public string State;
-        public string Zipcode;
-        public string PhoneNumber;
+        // variables
+        public string firstName;
+        public string lastName;
+        public string address;
+        public string city;
+        public string state;
+        public long zipCode;
+        public long phoneNumber;
         public string email;
-        public void Show()
+        //// constructor that gets user detail and store it in the current object.
+        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            CreateNewContact cc = new CreateNewContact();
-
-            Console.Write("Enter First Name: ");
-            cc.Firstname = Console.ReadLine();
-
-            Console.Write("Enter Last Name: ");
-            cc.Lastname = Console.ReadLine();
-
-            Console.Write("Enter City name: ");
-            cc.City = Console.ReadLine();
-
-            Console.Write("Enter State name: ");
-            cc.State = Console.ReadLine();
-
-            Console.Write("Enter the Zip Code: ");
-            cc.Zipcode = Console.ReadLine();
-
-            Console.Write("Enter Phone Number: ");
-            cc.PhoneNumber = Console.ReadLine();
-
-            Console.Write("Enter the Email ID: ");
-            cc.email = Console.ReadLine();
-
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("\nDetails of the Person are given below: ");
-            Console.ResetColor();
-            Console.WriteLine("\nFirst Name: " + cc.Firstname);
-            Console.WriteLine("\nLast Name: " + cc.Lastname);
-            Console.WriteLine("\nCity: " + cc.City);
-            Console.WriteLine("\nState: " + cc.State);
-            Console.WriteLine("\nZip Code: " + cc.Zipcode);
-            Console.WriteLine("\nPhone Number: " + cc.PhoneNumber);
-            Console.WriteLine("\nEmail ID: " + cc.email);
-            Console.WriteLine("-------------------------------------------");
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+            this.phoneNumber = phoneNumber;
+            this.email = email;
+        }
+        /// <summary>
+        /// To display the contact details.
+        /// </summary>
+        public void Display()
+        {
+            Console.WriteLine("First Name:{0}", this.firstName);
+            Console.WriteLine("Last Name:{0}", this.lastName);
+            Console.WriteLine("Address:{0}", this.address);
+            Console.WriteLine("City: {0}", this.city);
+            Console.WriteLine("State:{0}", this.state);
+            Console.WriteLine("Zipcode:{0}", this.zipCode);
+            Console.WriteLine("phone number:{0}", this.phoneNumber);
+            Console.WriteLine("Email:{0}", this.email);
         }
     }
 }
