@@ -29,7 +29,7 @@ namespace AddressBook
                 Console.WriteLine("City Name : {0} || State Name : {1} || ZipCode : {2}", contact.city, contact.state, contact.zip);
                 Console.WriteLine("Phone Number : {0}", contact.phoneNumber);
                 Console.WriteLine("Email Id : {0} ", contact.emailId);
-                //Console.ReadLine();
+                Console.ReadLine();
             }
         }
     }
