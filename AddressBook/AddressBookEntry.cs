@@ -1,49 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace AddressBook
+namespace AddressBook 
 {
-    public class AddressBookEntry 
+    public class AddressBookEntry : IContact
     {
-        //properties
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public double Zip { get; set; }
-        public double PhoneNumber { get; set; }
-        public string Email { get; set; }
-        //Method to display Contact.
-        public void DisplayContact()
+        //Creating a contact list
+        List<Contact> contactList;
+        public AddressBookEntry() 
         {
-            Console.WriteLine("FirstName: " + this.FirstName + " LastName: " + this.LastName
-                            + " Address: " + this.Address + " City: " + this.City + " State: "
-                            + this.State + " Zip: " + this.Zip + " PhoneNumber: "
-                            + this.PhoneNumber + " Email: " + this.Email);
+            contactList = new List<Contact>();
         }
-        //Method to Add Contact in a List.
-        public void AddContact() 
+        //Method to create contact(UC1) 
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string emailId)
         {
-            Console.Write("Enter First Name, Last Name, Address, City, State, Zip, Phone Number, Email \n");
-            AddressBookEntry addressBook = new AddressBookEntry()  //Initializing elements using collection-initializer syntax
+            Contact personDetail = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
+            contactList.Add(personDetail);
+        }
+        //Method to view contact
+        public void ViewContact()
+        {
+            int count = 1;
+            foreach (var contact in contactList)
             {
-                FirstName = Console.ReadLine(),
-                LastName = Console.ReadLine(),
-                Address = Console.ReadLine(),
-                City = Console.ReadLine(),
-                State = Console.ReadLine(),
-                Zip = Convert.ToDouble(Console.ReadLine()),
-                PhoneNumber = Convert.ToDouble(Console.ReadLine()),
-                Email = Console.ReadLine(),
-            };
-            //creating a List to store contacts in List.
-            IList<AddressBookEntry> AddreddBookList = new List<AddressBookEntry>();  //created List of class Type.
-            AddreddBookList.Add(addressBook);
-            addressBook.DisplayContact();
+                Console.WriteLine("Person Details {0} ------> ", count);
+                Console.WriteLine("First Name : {0} || Last Name : {1}", contact.firstName, contact.lastName);
+                Console.WriteLine("Address : {0} ", contact.address);
+                Console.WriteLine("City Name : {0} || State Name : {1} || ZipCode : {2}", contact.city, contact.state, contact.zip);
+                Console.WriteLine("Phone Number : {0}", contact.phoneNumber);
+                Console.WriteLine("Email Id : {0} ", contact.emailId);
+                Console.ReadLine();
+                count++;
+            }
         }
     }
 }
