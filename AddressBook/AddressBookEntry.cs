@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace AddressBook
+namespace AddressBook 
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -193,22 +192,30 @@ namespace AddressBook
 =======
     public class AddressBookEntry 
     {
-        //properties
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        public double Zip { get; set; }
-        public double PhoneNumber { get; set; }
-        public string Email { get; set; }
-        //Method to display Contact.
-        public void displayContact()
+        //Creating a contact list
+        List<Contact> contactList;
+        public AddressBookEntry() 
         {
-            Console.WriteLine("FirstName: " + this.FirstName + " LastName: " + this.LastName
-                            + " Address: " + this.Address + " City: " + this.City + " State: "
-                            + this.State + " Zip: " + this.Zip + " PhoneNumber: "
-                            + this.PhoneNumber + " Email: " + this.Email);
+            contactList = new List<Contact>();
+        }
+        //Method to create contact(UC1) 
+        public void AddContactDetails(string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string emailId)
+        {
+            Contact personDetail = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, emailId);
+            contactList.Add(personDetail);
+        }
+        //Method to view contact
+        public void ViewContact()
+        {
+            foreach (var contact in contactList)
+            {
+                Console.WriteLine("First Name : {0} || Last Name : {1}", contact.firstName, contact.lastName);
+                Console.WriteLine("Address : {0} ", contact.address);
+                Console.WriteLine("City Name : {0} || State Name : {1} || ZipCode : {2}", contact.city, contact.state, contact.zip);
+                Console.WriteLine("Phone Number : {0}", contact.phoneNumber);
+                Console.WriteLine("Email Id : {0} ", contact.emailId);
+                Console.ReadLine();
+            }
         }
 >>>>>>> UC1_CreateContact
     }

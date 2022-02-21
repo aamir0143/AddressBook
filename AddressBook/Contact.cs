@@ -7,6 +7,7 @@ namespace AddressBook
 {
     public class Contact
     {
+<<<<<<< HEAD
         // variables
         public string firstName;
         public string lastName;
@@ -22,12 +23,25 @@ namespace AddressBook
         // constructor that gets user detail and store it in the current object.
 >>>>>>> UC3_EditContacts
         public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+=======
+        //Declaring contact details properties
+        public readonly string firstName;
+        public readonly string lastName;
+        public readonly string address;
+        public readonly string city;
+        public readonly string state;
+        public readonly int zip;
+        public readonly long phoneNumber;
+        public readonly string emailId;
+        public Contact(string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string emailId)
+>>>>>>> UC1_CreateContact
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
             this.city = city;
             this.state = state;
+<<<<<<< HEAD
             this.zipCode = zipCode;
             this.phoneNumber = phoneNumber;
             this.email = email;
@@ -45,6 +59,11 @@ namespace AddressBook
             Console.WriteLine("Zipcode:{0}", this.zipCode);
             Console.WriteLine("phone number:{0}", this.phoneNumber);
             Console.WriteLine("Email:{0}", this.email);
+=======
+            this.zip = zip;
+            this.phoneNumber = phoneNumber;
+            this.emailId = emailId;
+>>>>>>> UC1_CreateContact
         }
     }
 }
