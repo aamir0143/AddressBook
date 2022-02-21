@@ -7,40 +7,25 @@ namespace AddressBook
 {
     public class Contact
     {
-        // variables
+        //Declaring contact details properties
         public string firstName;
         public string lastName;
         public string address;
         public string city;
         public string state;
-        public long zipCode;
+        public int zip;
         public long phoneNumber;
-        public string email;
-        //// constructor that gets user detail and store it in the current object.
-        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public string emailId;
+        public Contact(string firstName, string lastName, string address, string city, string state, int zip, long phoneNumber, string emailId)
         {
             this.firstName = firstName;
             this.lastName = lastName;
             this.address = address;
             this.city = city;
             this.state = state;
-            this.zipCode = zipCode;
+            this.zip = zip;
             this.phoneNumber = phoneNumber;
-            this.email = email;
-        }
-        /// <summary>
-        /// To display the contact details.
-        /// </summary>
-        public void Display()
-        {
-            Console.WriteLine("First Name:{0}", this.firstName);
-            Console.WriteLine("Last Name:{0}", this.lastName);
-            Console.WriteLine("Address:{0}", this.address);
-            Console.WriteLine("City: {0}", this.city);
-            Console.WriteLine("State:{0}", this.state);
-            Console.WriteLine("Zipcode:{0}", this.zipCode);
-            Console.WriteLine("phone number:{0}", this.phoneNumber);
-            Console.WriteLine("Email:{0}", this.email);
+            this.emailId = emailId;
         }
     }
 }
