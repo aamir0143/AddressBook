@@ -13,6 +13,7 @@ namespace AddressBook
         //Creating a contact list
         private readonly List<Contact> contactList;
         private readonly Dictionary<string, AddressBookEntry> addressContactBook;
+
         public AddressBookEntry() 
         {
             contactList = new List<Contact>();
@@ -130,8 +131,8 @@ namespace AddressBook
         {
             return addressContactBook;
         }
-        //Returning list of books with values(UC7)
-        public List<Contact> GetListOfDictctionaryKeys(string bookName)
+        //Returning list of values form particular book(UC7)
+        public List<Contact> GetListOfAddressBookValues(string bookName)
         {
             List<Contact> book = new List<Contact>();
             if (bookName != null)
@@ -148,13 +149,47 @@ namespace AddressBook
         //Checking For Duplicate Entry If Any(UC7)
         public bool CheckDuplicateEntry(Contact contact, string bookName)
         {
-            List<Contact> book = GetListOfDictctionaryKeys(bookName);
+            List<Contact> book = GetListOfAddressBookValues(bookName);
             if (bookName != null)
             {
                 if (book.Any(b => b.Equals(contact)))
                     return true;
             }
             return default;
+        }
+        //Method to add a new list of values from multiple books(UC8)
+        public List<Contact> GetListOfMulAddressBookValues(List<Contact> addrBookName)
+        {
+            List<Contact> book = new List<Contact>();
+            foreach (var value in addrBookName)
+            {
+                book.Add(value);
+            }
+            return book;
+        }
+        //Method to search the person by city(UC8)
+        public void SearchPersonByCity(string city)
+        {
+            foreach (AddressBookEntry addrBookObj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfMulAddressBookValues(addrBookObj.contactList);
+                foreach (Contact contact in contactList.FindAll(c => c.city.Equals(city)).ToList())
+                {
+                    Console.WriteLine(contact.ToString());
+                }
+            }
+        }
+        //Method to search the person by state(UC8)
+        public void SearchPersonByState(string state)
+        {
+            foreach (AddressBookEntry addressbookobj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfMulAddressBookValues(addressbookobj.contactList);
+                foreach (Contact contact in contactList.FindAll(c => c.state.Equals(state)).ToList())
+                {
+                    Console.WriteLine(contact.ToString());
+                }
+            }
         }
     }
 }
