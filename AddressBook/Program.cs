@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace AddressBook
+namespace AddressBook 
 {
     public class Program
     {
@@ -13,7 +13,7 @@ namespace AddressBook
             //Display Welcome Message
             Console.WriteLine("Welcome To Address Book Program");
             //Create Objects
-            AddressBookEntry addressBook = new AddressBookEntry();
+            AddressBookEntry addressBook = new AddressBookEntry(); 
             while (true)
             {
                 Console.WriteLine("1: Add A Default Addressbook" +
@@ -99,7 +99,7 @@ namespace AddressBook
                             }
                             else
                             {
-                                addressBook.CheckAddressBook(bookName);
+                                Console.WriteLine("Book Name Doesnt Exist");
                                 break;
                             }
                         }
