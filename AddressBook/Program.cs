@@ -11,8 +11,8 @@ namespace AddressBook
         public static void Main(string[] args)
         {
             //Display Welcome Message
-            Console.WriteLine("==========Welcome To Address Book Programs=========");
-           //create Objects
+            Console.WriteLine("==========Welcome To Address Book Programs==========");
+            //Create Objects
             AddressBookEntry addressBook = new AddressBookEntry();
             while (true)
             {
@@ -29,7 +29,8 @@ namespace AddressBook
                                   "\n11: Search Person By City Or State" +
                                   "\n12: Count Person By City Or State" +
                                   "\n13: Sort Entries By Name, City, State Or Zip" +
-                                  "\n14: Exit"
+                                  "\n14: File IO Operations" +
+                                  "\n15: Exit"
                                   );
                 Console.Write("Enter The Choice From Above : ");
                 bool flag = int.TryParse(Console.ReadLine(), out int userChoice);
@@ -156,6 +157,23 @@ namespace AddressBook
                             }
                             break;
                         case 14:
+                            //Calling file read and write operations method(UC13) 
+                            Console.WriteLine("\n1: Write Data Into The File \n2: Read Data From File");
+                            int fileChoice = int.Parse(Console.ReadLine());
+                            switch (fileChoice)
+                            {
+                                case 1:
+                                    FileIOOperations.WriteToFile(addressBook.addressContactBook);
+                                    break;
+                                case 2:
+                                    FileIOOperations.ReadFromFile();
+                                    break;
+                                default:
+                                    Console.WriteLine("Wrong Choice");
+                                    break;
+                            }
+                            break;
+                        case 15:
                             Environment.Exit(0);
                             break;
                         default:

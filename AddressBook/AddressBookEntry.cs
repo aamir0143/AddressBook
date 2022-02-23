@@ -10,11 +10,11 @@ namespace AddressBook
     /// <summary>
     /// Creating The Address Book For Adding Multiple Books And Multiple Person
     /// </summary>
-    public class AddressBookEntry : IContact 
+    public class AddressBookEntry : IContact
     {
         //Creating a contact list
-        private Dictionary<string, Contact> contactList = new Dictionary<string, Contact>();
-        private Dictionary<string, AddressBookEntry> addressContactBook = new Dictionary<string, AddressBookEntry>();
+        public Dictionary<string, Contact> contactList = new Dictionary<string, Contact>();
+        public Dictionary<string, AddressBookEntry> addressContactBook = new Dictionary<string, AddressBookEntry>();
         private Dictionary<Contact, string> personsCity = new Dictionary<Contact, string>();
         private Dictionary<Contact, string> personsState = new Dictionary<Contact, string>();
         //Method to create contact(UC1) 
