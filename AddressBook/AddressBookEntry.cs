@@ -10,7 +10,7 @@ namespace AddressBook
     /// <summary>
     /// Creating The Address Book For Adding Multiple Books And Multiple Person
     /// </summary>
-    public class AddressBookEntry : IContact
+    public class AddressBookEntry : IContact 
     {
         //Creating a contact list
         private Dictionary<string, Contact> contactList = new Dictionary<string, Contact>();
@@ -172,9 +172,9 @@ namespace AddressBook
         public void SearchPersonByState(string state)
         {
             CreateStateDictionary();
-            foreach (AddressBookEntry addressBookobj in addressContactBook.Values)
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
             {
-                List<Contact> contactList = GetListOfDictionaryContactKeys(addressBookobj.personsState);
+                List<Contact> contactList = GetListOfDictionaryContactKeys(addressBookObj.personsState);
                 foreach (Contact contact in contactList.FindAll(c => c.state.Equals(state)).ToList())
                 {
                     Console.WriteLine(contact.ToString());
@@ -257,16 +257,53 @@ namespace AddressBook
             }
             Console.WriteLine();
         }
-        //Method to sort the entries in the address book(UC11)
+        //Method to sort the entries in the address book by name(UC11)
         public void SortRecordsByName()
         {
-            foreach (AddressBookEntry addressBookobj in addressContactBook.Values)
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
             {
-                List<string> list = addressBookobj.contactList.Keys.ToList();
+                List<string> list = addressBookObj.contactList.Keys.ToList();
                 list.Sort();
                 foreach (string personName in list)
                 {
-                    Console.WriteLine(addressBookobj.contactList[personName]);
+                    Console.WriteLine(addressBookObj.contactList[personName]);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by city(UC12)
+        public void SortRecordsByCity()
+        {
+            CreateCityDictionary();
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfDictionaryContactKeys(addressBookObj.personsCity);
+                foreach (Contact contact in contactList.OrderBy(c => c.city).ToList())
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by state(UC12)
+        public void SortRecordsByState()
+        {
+            CreateStateDictionary();
+            foreach (AddressBookEntry addressBookObj in addressContactBook.Values)
+            {
+                List<Contact> contactList = GetListOfDictionaryContactKeys(addressBookObj.personsState);
+                foreach (Contact contact in contactList.OrderBy(c => c.state).ToList())
+                {
+                    Console.WriteLine(contact);
+                }
+            }
+        }
+        //Method to sort the entries in the address book by zipcode(UC12)
+        public void SortRecordsByZip()
+        {
+            foreach (AddressBookEntry addressBookobj in addressContactBook.Values)
+            {
+                foreach (Contact contact in addressBookobj.contactList.Values.OrderBy(c => c.zip).ToList())
+                {
+                    Console.WriteLine(contact);
                 }
             }
         }
